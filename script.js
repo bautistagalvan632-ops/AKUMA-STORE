@@ -1,4 +1,4 @@
-// Tu número de WhatsApp de Akuma Store
+// Configuración de contacto de Akuma Store
 const MI_WHATSAPP = "5491138508796"; 
 
 // MEGAPACK DE JUEGOS MASIVOS DE AKUMA STORE
@@ -61,7 +61,8 @@ function mostrarJuegos(lista) {
                 <span class="platform-badge badge-${juego.plataforma}">${juego.plataforma}</span>
                 <h3>${juego.titulo}</h3>
                 <div class="price">USD $${juego.precio}</div>
-                <button class="btn-buy" onclick="comprarJuego('${juego.titulo}', '${juego.plataforma.toUpperCase()}')">Comprar por WhatsApp</button>
+                <!-- El texto del botón ahora dice estrictamente Comprar -->
+                <button class="btn-buy" onclick="comprarJuego('${juego.titulo}', '${juego.plataforma.toUpperCase()}')">Comprar</button>
             </div>
         `;
         catalogContainer.appendChild(card);
@@ -79,8 +80,9 @@ function filtrarCatálogo() {
     mostrarJuegos(juegosFiltrados);
 }
 
+// Envía al chat directo con tu mensaje personalizado y los detalles del juego elegido
 function comprarJuego(titulo, plataforma) {
-    const mensaje = encodeURIComponent(`¡Hola Akuma Store! Me interesa adquirir el juego digital de ${titulo} para ${plataforma}. ¿Me indican los métodos de pago actuales?`);
+    const mensaje = encodeURIComponent(`¡quiero compra este juego!: ${titulo} para ${plataforma}`);
     window.open(`https://wa.me{MI_WHATSAPP}?text=${mensaje}`, '_blank');
 }
 
