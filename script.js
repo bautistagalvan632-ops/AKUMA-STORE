@@ -1,24 +1,70 @@
 const MI_WHATSAPP = "5491138508796"; 
 
-// CONFIGURACIÓN DE SEGURIDAD (Cambia tu contraseña aquí si quieres)
+// CONFIGURACIÓN DE SEGURIDAD
 const PASSWORD_ADMIN = "akuma2026";
 
-// Estado de la sesión del administrador
 let isAdminMode = false;
 
-// Catálogo base de respaldo
+// MEGACATÁLOGO BASE EXCLUSIVO DE JUEGOS DE PS4
 const catálogoBase = [
-    { titulo: "EA Sports FC 26", plataforma: "ps5", precio: "39.99", imagen: "https://unsplash.com" },
+    // --- DEPORTES Y CARRERAS PS4 ---
     { titulo: "EA Sports FC 26", plataforma: "ps4", precio: "29.99", imagen: "https://unsplash.com" },
+    { titulo: "EA Sports FC 25", plataforma: "ps4", precio: "15.00", imagen: "https://unsplash.com" },
+    { titulo: "EA Sports FC 24", plataforma: "ps4", precio: "10.00", imagen: "https://unsplash.com" },
+    { titulo: "FIFA 23", plataforma: "ps4", precio: "8.00", imagen: "https://unsplash.com" },
+    { titulo: "eFootball Coin Pack", plataforma: "ps4", precio: "12.00", imagen: "https://unsplash.com" },
+    { titulo: "NBA 2K26", plataforma: "ps4", precio: "29.99", imagen: "https://unsplash.com" },
+    { titulo: "NBA 2K25", plataforma: "ps4", precio: "14.99", imagen: "https://unsplash.com" },
+    { titulo: "Crash Team Racing Nitro-Fueled", plataforma: "ps4", precio: "15.00", imagen: "https://unsplash.com" },
+    { titulo: "Gran Turismo Sport", plataforma: "ps4", precio: "12.00", imagen: "https://unsplash.com" },
+    { titulo: "Need for Speed Heat", plataforma: "ps4", precio: "11.00", imagen: "https://unsplash.com" },
+    { titulo: "F1 24", plataforma: "ps4", precio: "25.00", imagen: "https://unsplash.com" },
+
+    // --- ACCIÓN Y MUNDO ABIERTO PS4 ---
     { titulo: "Grand Theft Auto V", plataforma: "ps4", precio: "15.00", imagen: "https://unsplash.com" },
-    { titulo: "Grand Theft Auto V", plataforma: "ps5", precio: "19.99", imagen: "https://unsplash.com" },
-    { titulo: "Marvel's Spider-Man 2", plataforma: "ps5", precio: "45.00", imagen: "https://unsplash.com" },
-    { titulo: "Call of Duty: Black Ops 6", plataforma: "ps5", precio: "49.99", imagen: "https://unsplash.com" },
+    { titulo: "Red Dead Redemption 2", plataforma: "ps4", precio: "18.00", imagen: "https://unsplash.com" },
+    { titulo: "Call of Duty: Black Ops 6", plataforma: "ps4", precio: "39.99", imagen: "https://unsplash.com" },
+    { titulo: "Call of Duty: Modern Warfare 3", plataforma: "ps4", precio: "25.00", imagen: "https://unsplash.com" },
+    { titulo: "Marvel's Spider-Man", plataforma: "ps4", precio: "14.00", imagen: "https://unsplash.com" },
+    { titulo: "Marvel's Spider-Man: Miles Morales", plataforma: "ps4", precio: "18.00", imagen: "https://unsplash.com" },
+    { titulo: "Ghost of Tsushima Director's Cut", plataforma: "ps4", precio: "22.50", imagen: "https://unsplash.com" },
+    { titulo: "Assassin's Creed Valhalla", plataforma: "ps4", precio: "15.00", imagen: "https://unsplash.com" },
+    { titulo: "Assassin's Creed Mirage", plataforma: "ps4", precio: "20.00", imagen: "https://unsplash.com" },
+    { titulo: "Cyberpunk 2077", plataforma: "ps4", precio: "16.00", imagen: "https://unsplash.com" },
+    { titulo: "Horizon Zero Dawn Complete", plataforma: "ps4", precio: "9.99", imagen: "https://unsplash.com" },
+    { titulo: "Horizon Forbidden West", plataforma: "ps4", precio: "19.99", imagen: "https://unsplash.com" },
+
+    // --- AVENTURA E HISTORIA PS4 ---
+    { titulo: "God of War (2018)", plataforma: "ps4", precio: "10.00", imagen: "https://unsplash.com" },
     { titulo: "God of War Ragnarök", plataforma: "ps4", precio: "25.00", imagen: "https://unsplash.com" },
-    { titulo: "Minecraft", plataforma: "ps4", precio: "14.50", imagen: "https://unsplash.com" }
+    { titulo: "The Last of Us Remastered", plataforma: "ps4", precio: "8.50", imagen: "https://unsplash.com" },
+    { titulo: "The Last of Us Part II", plataforma: "ps4", precio: "18.00", imagen: "https://unsplash.com" },
+    { titulo: "Uncharted: The Nathan Drake Collection", plataforma: "ps4", precio: "10.00", imagen: "https://unsplash.com" },
+    { titulo: "Uncharted 4: A Thief's End", plataforma: "ps4", precio: "12.00", imagen: "https://unsplash.com" },
+    { titulo: "Elden Ring", plataforma: "ps4", precio: "32.00", imagen: "https://unsplash.com" },
+    { titulo: "Hogwarts Legacy", plataforma: "ps4", precio: "28.00", imagen: "https://unsplash.com" },
+    { titulo: "The Witcher 3: Wild Hunt Complete", plataforma: "ps4", precio: "12.00", imagen: "https://unsplash.com" },
+
+    // --- TERROR Y LUCHA PS4 ---
+    { titulo: "Resident Evil 4 Remake", plataforma: "ps4", precio: "24.99", imagen: "https://unsplash.com" },
+    { titulo: "Resident Evil 7: Biohazard", plataforma: "ps4", precio: "10.00", imagen: "https://unsplash.com" },
+    { titulo: "Resident Evil Village", plataforma: "ps4", precio: "16.00", imagen: "https://unsplash.com" },
+    { titulo: "Mortal Kombat 11 Ultimate", plataforma: "ps4", precio: "12.00", imagen: "https://unsplash.com" },
+    { titulo: "Mortal Kombat XL", plataforma: "ps4", precio: "8.00", imagen: "https://unsplash.com" },
+    { titulo: "Dragon Ball FighterZ", plataforma: "ps4", precio: "10.00", imagen: "https://unsplash.com" },
+    { titulo: "Dragon Ball Xenoverse 2", plataforma: "ps4", precio: "12.00", imagen: "https://unsplash.com" },
+    { titulo: "Naruto Shippuden: Ultimate Ninja STORM 4", plataforma: "ps4", precio: "9.00", imagen: "https://unsplash.com" },
+
+    // --- FAMILIARES Y SIMULACIÓN PS4 ---
+    { titulo: "Minecraft", plataforma: "ps4", precio: "14.50", imagen: "https://unsplash.com" },
+    { titulo: "It Takes Two", plataforma: "ps4", precio: "16.00", imagen: "https://unsplash.com" },
+    { titulo: "Crash Bandicoot N. Sane Trilogy", plataforma: "ps4", precio: "15.00", imagen: "https://unsplash.com" },
+    { titulo: "Crash Bandicoot 4: It's About Time", plataforma: "ps4", precio: "20.00", imagen: "https://unsplash.com" },
+    { titulo: "Stray", plataforma: "ps4", precio: "11.99", imagen: "https://unsplash.com" },
+    { titulo: "The Sims 4 Packs Integrados", plataforma: "ps4", precio: "18.00", imagen: "https://unsplash.com" },
+    { titulo: "Lego Marvel Super Heroes 2", plataforma: "ps4", precio: "10.00", imagen: "https://unsplash.com" }
 ];
 
-// Cargar juegos desde el almacenamiento del navegador o usar el catálogo base
 let juegos = JSON.parse(localStorage.getItem('akuma_catalog')) || catálogoBase;
 
 const catalogContainer = document.getElementById('catalog');
@@ -46,7 +92,6 @@ function mostrarJuegos(lista) {
         `;
         catalogContainer.appendChild(card);
         
-        // Mantener visibles los botones de borrado si estás logueado
         if (isAdminMode) {
             document.getElementById(`del-${index}`).style.display = 'block';
         }
@@ -69,64 +114,5 @@ function comprarJuego(titulo, plataforma) {
     window.open(`https://wa.me{MI_WHATSAPP}?text=${mensaje}`, '_blank');
 }
 
-// LÓGICA EXCLUSIVA ADMINISTRATIVA
 function loginAdmin() {
     const intento = prompt("Introduce la clave maestra de Akuma Store:");
-    if (intento === PASSWORD_ADMIN) {
-        isAdminMode = true;
-        document.getElementById('adminPanel').style.display = 'block';
-        document.getElementById('overlay').style.display = 'block';
-        actualizarCodigoExportar();
-        filtrarCatálogo(); // Refresca para mostrar los botones de borrado
-    } else if (intento !== null) {
-        alert("Clave incorrecta. Acceso denegado.");
-    }
-}
-
-function cerrarAdmin() {
-    document.getElementById('adminPanel').style.display = 'none';
-    document.getElementById('overlay').style.display = 'none';
-}
-
-function agregarJuegoManual() {
-    const titulo = document.getElementById('new-title').value.trim();
-    const plataforma = document.getElementById('new-platform').value;
-    const precio = document.getElementById('new-price').value.trim();
-    const imagen = document.getElementById('new-image').value.trim();
-
-    if (!titulo || !precio) {
-        alert("Por favor, introduce al menos el título y el precio.");
-        return;
-    }
-
-    juegos.unshift({ titulo, plataforma, precio, imagen });
-    guardarYRefrescar();
-    
-    // Limpiar formulario
-    document.getElementById('new-title').value = '';
-    document.getElementById('new-price').value = '';
-    document.getElementById('new-image').value = '';
-}
-
-function eliminarJuego(index) {
-    if (confirm(`¿Estás seguro de que quieres eliminar "${juegos[index].titulo}"?`)) {
-        juegos.splice(index, 1);
-        guardarYRefrescar();
-    }
-}
-
-function guardarYRefrescar() {
-    localStorage.setItem('akuma_catalog', JSON.stringify(juegos));
-    filtrarCatálogo();
-    actualizarCodigoExportar();
-}
-
-function actualizarCodigoExportar() {
-    // Genera el código de la lista estructurada para copiar fácilmente
-    const caja = document.getElementById('exportBox');
-    caja.innerText = JSON.stringify(juegos, null, 4);
-}
-
-searchInput.addEventListener('input', filtrarCatálogo);
-platformSelect.addEventListener('change', filtrarCatálogo);
-mostrarJuegos(juegos);
