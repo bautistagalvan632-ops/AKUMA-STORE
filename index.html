@@ -28,11 +28,12 @@
             text-align: center;
             border-bottom: 3px solid var(--accent-red);
             box-shadow: 0 0 20px rgba(255, 26, 26, 0.3);
+            position: relative;
         }
 
         .logo-container img {
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             border: 3px solid var(--accent-red);
             box-shadow: 0 0 15px var(--neon-glow);
@@ -45,13 +46,23 @@
             font-size: 2.3rem;
             letter-spacing: 3px;
             text-shadow: 0 0 10px var(--neon-glow);
-            color: #fff;
         }
 
         header p {
             color: #b3b3b3;
             margin: 10px 0 0 0;
-            font-size: 1.1rem;
+        }
+
+        /* Botón de acceso secreto en la esquina */
+        .admin-trigger {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: transparent;
+            border: none;
+            color: #222;
+            cursor: pointer;
+            font-size: 0.9rem;
         }
 
         .controls {
@@ -64,7 +75,7 @@
             flex-wrap: wrap;
         }
 
-        input, select {
+        input, select, textarea {
             padding: 12px 20px;
             background-color: var(--card-bg);
             border: 1px solid #2a1a1a;
@@ -75,12 +86,12 @@
             transition: 0.3s;
         }
 
-        input:focus, select:focus {
+        input:focus, select:focus, textarea:focus {
             border-color: var(--accent-red);
             box-shadow: 0 0 8px rgba(255, 26, 26, 0.5);
         }
 
-        input { flex: 1; min-width: 200px; }
+        input[type="text"]#search { flex: 1; min-width: 200px; }
 
         .catalog {
             display: grid;
@@ -100,12 +111,7 @@
             display: flex;
             flex-direction: column;
             border: 1px solid #1f1515;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(255, 26, 26, 0.25);
-            border-color: var(--accent-red);
+            position: relative;
         }
 
         .card img {
@@ -154,20 +160,59 @@
             font-weight: bold;
             cursor: pointer;
             margin-top: auto;
-            transition: 0.2s;
         }
 
-        .btn-buy:hover {
-            filter: brightness(1.2);
-            box-shadow: 0 0 12px var(--neon-glow);
+        /* Botón de eliminar (sólo visible para ti) */
+        .btn-delete {
+            background-color: #ff1a1a;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: bold;
+            display: none;
         }
+
+        /* Panel de administración flotante */
+        .admin-panel {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #111420;
+            border: 2px solid var(--accent-red);
+            box-shadow: 0 0 30px rgba(255,0,0,0.5);
+            padding: 25px;
+            border-radius: 12px;
+            z-index: 1000;
+            width: 90%;
+            max-width: 500px;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        .admin-panel h2 { margin-top: 0; color: var(--accent-red); }
+        .admin-panel fieldset { border: 1px solid #333; margin-bottom: 15px; padding: 15px; border-radius: 6px; }
+        .admin-panel label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .admin-panel input, .admin-panel select { width: 100%; box-sizing: border-box; margin-bottom: 15px; }
+        
+        .admin-actions { display: flex; gap: 10px; }
+        .btn-admin-save { background-color: #00c853; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; flex: 1; }
+        .btn-admin-close { background-color: #333; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; flex: 1; }
+        
+        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 999; }
+        
+        .export-box { background: #000; padding: 10px; font-family: monospace; font-size: 0.8rem; color: #00ff00; overflow-x: auto; margin-top: 15px; max-height: 100px; }
     </style>
 </head>
 <body>
 
     <header>
+        <button class="admin-trigger" onclick="loginAdmin()">⚙️</button>
         <div class="logo-container">
-            <!-- Usamos tu logo subido temporalmente para la estructura -->
             <img src="logo.png" alt="Akuma Store Logo">
         </div>
         <h1>AKUMA STORE</h1>
@@ -184,6 +229,42 @@
     </div>
 
     <main class="catalog" id="catalog"></main>
+
+    <!-- Capa oscura trasera y Panel de control -->
+    <div class="overlay" id="overlay" onclick="cerrarAdmin()"></div>
+    <div class="admin-panel" id="adminPanel">
+        <h2>Panel de Control Akuma</h2>
+        
+        <fieldset>
+            <legend>Añadir Nuevo Juego</legend>
+            <label>Título del Juego:</label>
+            <input type="text" id="new-title" placeholder="Ej: Resident Evil 9">
+            
+            <label>Consola:</label>
+            <select id="new-platform">
+                <option value="ps5">PlayStation 5</option>
+                <option value="ps4">PlayStation 4</option>
+            </select>
+            
+            <label>Precio (USD):</label>
+            <input type="text" id="new-price" placeholder="Ej: 29.99">
+            
+            <label>URL de la Portada (Imagen):</label>
+            <input type="text" id="new-image" placeholder="Pegar link de Google Imágenes">
+            
+            <button class="btn-admin-save" onclick="agregarJuegoManual()">Añadir al Catálogo</button>
+        </fieldset>
+
+        <div style="margin-top: 15px;">
+            <label>Código para guardar en GitHub (Opcional):</label>
+            <small style="color:#aaa; display:block; margin-bottom:5px;">Copia esto si deseas actualizar tu script.js permanentemente para todo el mundo:</small>
+            <div class="export-box" id="exportBox"></div>
+        </div>
+
+        <div class="admin-actions" style="margin-top: 15px;">
+            <button class="btn-admin-close" onclick="cerrarAdmin()">Cerrar Panel</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
