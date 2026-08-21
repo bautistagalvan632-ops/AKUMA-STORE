@@ -1,271 +1,153 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akuma Store - Juegos Digitales PS4 y PS5</title>
-    <style>
-        :root {
-            --bg-color: #050508;
-            --card-bg: #0f111a;
-            --text-color: #ffffff;
-            --accent-red: #ff1a1a;
-            --accent-ps5: #0072ce;
-            --accent-ps4: #1f3c88;
-            --neon-glow: #ff3333;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-        }
+  <title>AKUMA STORE</title>
 
-        header {
-            background: linear-gradient(135deg, #1a0505, #050508);
-            padding: 30px 20px;
-            text-align: center;
-            border-bottom: 3px solid var(--accent-red);
-            box-shadow: 0 0 20px rgba(255, 26, 26, 0.3);
-            position: relative;
-        }
+  <link rel="stylesheet" href="styles.css">
 
-        .logo-container img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 3px solid var(--accent-red);
-            box-shadow: 0 0 15px var(--neon-glow);
-            object-fit: cover;
-            margin-bottom: 15px;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 2.3rem;
-            letter-spacing: 3px;
-            text-shadow: 0 0 10px var(--neon-glow);
-        }
-
-        header p {
-            color: #b3b3b3;
-            margin: 10px 0 0 0;
-        }
-
-        /* Botón de acceso secreto en la esquina */
-        .admin-trigger {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: transparent;
-            border: none;
-            color: #222;
-            cursor: pointer;
-            font-size: 0.9rem;
-        }
-
-        .controls {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 25px auto;
-            max-width: 800px;
-            padding: 0 20px;
-            flex-wrap: wrap;
-        }
-
-        input, select, textarea {
-            padding: 12px 20px;
-            background-color: var(--card-bg);
-            border: 1px solid #2a1a1a;
-            color: white;
-            border-radius: 8px;
-            font-size: 1rem;
-            outline: none;
-            transition: 0.3s;
-        }
-
-        input:focus, select:focus, textarea:focus {
-            border-color: var(--accent-red);
-            box-shadow: 0 0 8px rgba(255, 26, 26, 0.5);
-        }
-
-        input[type="text"]#search { flex: 1; min-width: 200px; }
-
-        .catalog {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 25px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.7);
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid #1f1515;
-            position: relative;
-        }
-
-        .card img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            background-color: #222;
-        }
-
-        .card-content {
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .platform-badge {
-            align-self: flex-start;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .badge-ps5 { background-color: var(--accent-ps5); }
-        .badge-ps4 { background-color: var(--accent-ps4); }
-
-        .card h3 { margin: 0 0 10px 0; font-size: 1.2rem; }
-        
-        .price {
-            font-size: 1.4rem;
-            color: #fff;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .btn-buy {
-            background: linear-gradient(90deg, #990000, var(--accent-red));
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 6px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: auto;
-        }
-
-        /* Botón de eliminar (sólo visible para ti) */
-        .btn-delete {
-            background-color: #ff1a1a;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 10px;
-            font-weight: bold;
-            display: none;
-        }
-
-        /* Panel de administración flotante */
-        .admin-panel {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #111420;
-            border: 2px solid var(--accent-red);
-            box-shadow: 0 0 30px rgba(255,0,0,0.5);
-            padding: 25px;
-            border-radius: 12px;
-            z-index: 1000;
-            width: 90%;
-            max-width: 500px;
-            max-height: 85vh;
-            overflow-y: auto;
-        }
-
-        .admin-panel h2 { margin-top: 0; color: var(--accent-red); }
-        .admin-panel fieldset { border: 1px solid #333; margin-bottom: 15px; padding: 15px; border-radius: 6px; }
-        .admin-panel label { display: block; margin-bottom: 5px; font-weight: bold; }
-        .admin-panel input, .admin-panel select { width: 100%; box-sizing: border-box; margin-bottom: 15px; }
-        
-        .admin-actions { display: flex; gap: 10px; }
-        .btn-admin-save { background-color: #00c853; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; flex: 1; }
-        .btn-admin-close { background-color: #333; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; flex: 1; }
-        
-        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 999; }
-        
-        .export-box { background: #000; padding: 10px; font-family: monospace; font-size: 0.8rem; color: #00ff00; overflow-x: auto; margin-top: 15px; max-height: 100px; }
-    </style>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
+
 <body>
 
-    <header>
-        <button class="admin-trigger" onclick="loginAdmin()">⚙️</button>
-        <div class="logo-container">
-            <img src="logo.png" alt="Akuma Store Logo">
-        </div>
-        <h1>AKUMA STORE</h1>
-        <p>Juegos Digitales Garantizados para PS4 y PS5</p>
-    </header>
+<header class="topbar">
 
-    <div class="controls">
-        <input type="text" id="search" placeholder="Buscar tu juego favorito...">
-        <select id="filter-platform">
-            <option value="all">Todas las plataformas</option>
-            <option value="ps5">PlayStation 5</option>
-            <option value="ps4">PlayStation 4</option>
-        </select>
+  <a href="index.html" class="brand">
+    <img src="assets/logo.png" alt="AKUMA STORE">
+  </a>
+
+  <nav>
+    <a href="#catalogo">Juegos</a>
+    <a href="#ofertas">Ofertas</a>
+    <a href="admin.html">Admin</a>
+
+    <button id="themeBtn" class="icon-btn">
+      ☾
+    </button>
+  </nav>
+
+</header>
+
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <span class="eyebrow">
+      AKUMA STORE
+    </span>
+
+    <h1>
+      TU PRÓXIMA PARTIDA
+      <strong>EMPIEZA ACÁ</strong>
+    </h1>
+
+    <p>
+      Juegos de PS3, PS4 y PS5.
+      Ofertas, novedades y destacados.
+    </p>
+
+    <a href="#ofertas" class="btn btn-red">
+      VER OFERTAS
+    </a>
+
+  </div>
+
+</section>
+
+
+<section id="ofertas" class="section">
+
+  <div class="section-head">
+
+    <div>
+      <span class="eyebrow">
+        DESTACADOS
+      </span>
+
+      <h2>
+        Ofertas de hoy
+      </h2>
     </div>
 
-    <main class="catalog" id="catalog"></main>
+  </div>
 
-    <!-- Capa oscura trasera y Panel de control -->
-    <div class="overlay" id="overlay" onclick="cerrarAdmin()"></div>
-    <div class="admin-panel" id="adminPanel">
-        <h2>Panel de Control Akuma</h2>
-        
-        <fieldset>
-            <legend>Añadir Nuevo Juego</legend>
-            <label>Título del Juego:</label>
-            <input type="text" id="new-title" placeholder="Ej: Resident Evil 9">
-            
-            <label>Consola:</label>
-            <select id="new-platform">
-                <option value="ps5">PlayStation 5</option>
-                <option value="ps4">PlayStation 4</option>
-            </select>
-            
-            <label>Precio (USD):</label>
-            <input type="text" id="new-price" placeholder="Ej: 29.99">
-            
-            <label>URL de la Portada (Imagen):</label>
-            <input type="text" id="new-image" placeholder="Pegar link de Google Imágenes">
-            
-            <button class="btn-admin-save" onclick="agregarJuegoManual()">Añadir al Catálogo</button>
-        </fieldset>
+  <div id="offersCarousel" class="offers-carousel">
 
-        <div style="margin-top: 15px;">
-            <label>Código para guardar en GitHub (Opcional):</label>
-            <small style="color:#aaa; display:block; margin-bottom:5px;">Copia esto si deseas actualizar tu script.js permanentemente para todo el mundo:</small>
-            <div class="export-box" id="exportBox"></div>
-        </div>
+    <p>
+      Cargando ofertas...
+    </p>
 
-        <div class="admin-actions" style="margin-top: 15px;">
-            <button class="btn-admin-close" onclick="cerrarAdmin()">Cerrar Panel</button>
-        </div>
+  </div>
+
+</section>
+
+
+<section id="catalogo" class="section">
+
+  <div class="section-head">
+
+    <div>
+
+      <span class="eyebrow">
+        CATÁLOGO
+      </span>
+
+      <h2>
+        Todos los juegos
+      </h2>
+
     </div>
 
-    <script src="script.js"></script>
+    <div class="filters">
+
+      <button class="filter active" data-console="Todos">
+        Todos
+      </button>
+
+      <button class="filter" data-console="PS3">
+        PS3
+      </button>
+
+      <button class="filter" data-console="PS4">
+        PS4
+      </button>
+
+      <button class="filter" data-console="PS5">
+        PS5
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div id="gamesGrid" class="games-grid">
+
+    <p>
+      Cargando juegos...
+    </p>
+
+  </div>
+
+</section>
+
+
+<footer>
+
+  <img src="assets/logo.png" alt="AKUMA STORE">
+
+  <p>
+    © 2026 AKUMA STORE
+  </p>
+
+</footer>
+
+
+<script src="app.js"></script>
+
 </body>
 </html>
