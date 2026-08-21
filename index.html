@@ -1,148 +1,141 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AKUMA STORE - Juegos PS3, PS4 y PS5">
+    <title>AKUMA STORE</title>
 
-  <title>AKUMA STORE</title>
-
-  <link rel="stylesheet" href="styles.css">
-
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<header class="topbar">
+<header class="header">
 
-  <a href="index.html" class="brand">
-    <img src="assets/logo.png" alt="AKUMA STORE">
-  </a>
+    <a href="index.html" class="logo-container">
+        <img src="logo.png" alt="AKUMA STORE" class="logo">
+    </a>
 
-  <nav>
-    <a href="#catalogo">Juegos</a>
-    <a href="#ofertas">Ofertas</a>
-    <a href="admin.html">Admin</a>
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#juegos">Juegos</a>
+        <a href="#ofertas">Ofertas</a>
+        <a href="admin.html">Admin</a>
+    </nav>
 
-    <button id="themeBtn" class="icon-btn">
-      ☾
+    <button id="themeButton" class="theme-button">
+        ☀️
     </button>
-  </nav>
 
 </header>
 
 
-<section class="hero">
+<main>
 
-  <div class="hero-content">
+    <!-- BANNER -->
 
-    <span class="eyebrow">
-      AKUMA STORE
-    </span>
+    <section id="inicio" class="hero">
 
-    <h1>
-      TU PRÓXIMA PARTIDA
-      <strong>EMPIEZA ACÁ</strong>
-    </h1>
+        <div class="hero-content">
 
-    <p>
-      Juegos de PS3, PS4 y PS5.
-      Ofertas, novedades y destacados.
-    </p>
+            <span class="hero-small">
+                🎮 AKUMA STORE
+            </span>
 
-    <a href="#ofertas" class="btn btn-red">
-      VER OFERTAS
-    </a>
+            <h1>
+                LOS MEJORES<br>
+                <span>JUEGOS</span>
+            </h1>
 
-  </div>
+            <p>
+                PS3 • PS4 • PS5
+            </p>
 
-</section>
+            <a href="#juegos" class="hero-button">
+                VER JUEGOS
+            </a>
 
+        </div>
 
-<section id="ofertas" class="section">
-
-  <div class="section-head">
-
-    <div>
-      <span class="eyebrow">
-        DESTACADOS
-      </span>
-
-      <h2>
-        Ofertas de hoy
-      </h2>
-    </div>
-
-  </div>
-
-  <div id="offersCarousel" class="offers-carousel">
-
-    <p>
-      Cargando ofertas...
-    </p>
-
-  </div>
-
-</section>
+    </section>
 
 
-<section id="catalogo" class="section">
+    <!-- OFERTAS -->
 
-  <div class="section-head">
+    <section id="ofertas" class="section">
 
-    <div>
+        <div class="section-title">
+            <span>🔥</span>
+            <h2>OFERTAS</h2>
+        </div>
 
-      <span class="eyebrow">
-        CATÁLOGO
-      </span>
+        <div id="offersCarousel" class="carousel">
 
-      <h2>
-        Todos los juegos
-      </h2>
+            <button class="carousel-btn prev" onclick="previousOffer()">
+                ❮
+            </button>
 
-    </div>
+            <div id="carouselContent"></div>
 
-    <div class="filters">
+            <button class="carousel-btn next" onclick="nextOffer()">
+                ❯
+            </button>
 
-      <button class="filter active" data-console="Todos">
-        Todos
-      </button>
+        </div>
 
-      <button class="filter" data-console="PS3">
-        PS3
-      </button>
-
-      <button class="filter" data-console="PS4">
-        PS4
-      </button>
-
-      <button class="filter" data-console="PS5">
-        PS5
-      </button>
-
-    </div>
-
-  </div>
+    </section>
 
 
-  <div id="gamesGrid" class="games-grid">
+    <!-- JUEGOS -->
 
-    <p>
-      Cargando juegos...
-    </p>
+    <section id="juegos" class="section">
 
-  </div>
+        <div class="section-title">
+            <span>🎮</span>
+            <h2>NUESTROS JUEGOS</h2>
+        </div>
 
-</section>
+
+        <div class="filters">
+
+            <button class="filter active" data-console="todos">
+                TODOS
+            </button>
+
+            <button class="filter" data-console="PS3">
+                PS3
+            </button>
+
+            <button class="filter" data-console="PS4">
+                PS4
+            </button>
+
+            <button class="filter" data-console="PS5">
+                PS5
+            </button>
+
+        </div>
+
+
+        <div id="gamesContainer" class="games-grid"></div>
+
+    </section>
+
+</main>
 
 
 <footer>
 
-  <img src="assets/logo.png" alt="AKUMA STORE">
+    <img src="logo.png" alt="AKUMA STORE">
 
-  <p>
-    © 2026 AKUMA STORE
-  </p>
+    <p>
+        © 2026 AKUMA STORE
+    </p>
+
+    <p>
+        PS3 • PS4 • PS5
+    </p>
 
 </footer>
 
@@ -150,4 +143,4 @@
 <script src="app.js"></script>
 
 </body>
-</html>
+  </html>
