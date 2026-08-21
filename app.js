@@ -1,59 +1,438 @@
-const WHATSAPP = "1138508796";
+const WHATSAPP_LINK = "https://wa.me/qr/6T47JUBLLYW5M1";
 
 const defaultGames = [
+
+    // =====================
+    // PS4
+    // =====================
+
     {
         id: 1,
-        name: "God of War III",
-        console: "PS3",
-        price: 15000,
+        name: "Grand Theft Auto V",
+        console: "PS4",
         status: "Destacado",
-        image: "https://images.unsplash.com/photo-1542751371-adc38448a05e"
+        image: "images/gta-v.jpg"
     },
-
     {
         id: 2,
-        name: "The Last of Us",
-        console: "PS3",
-        price: 18000,
-        status: "Oferta",
-        image: "https://images.unsplash.com/photo-1605901309584-818e25960a8f"
+        name: "Red Dead Redemption 2",
+        console: "PS4",
+        status: "Destacado",
+        image: "images/red-dead-redemption-2.jpg"
     },
-
     {
         id: 3,
         name: "God of War",
         console: "PS4",
-        price: 25000,
-        status: "Nuevo",
-        image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f"
+        status: "Destacado",
+        image: "images/god-of-war.jpg"
     },
-
     {
         id: 4,
-        name: "Spider-Man",
+        name: "Marvel's Spider-Man",
         console: "PS4",
-        price: 28000,
         status: "Destacado",
-        image: "https://images.unsplash.com/photo-1560253023-3ec5d502959f"
+        image: "images/spider-man.jpg"
     },
-
     {
         id: 5,
-        name: "Spider-Man 2",
-        console: "PS5",
-        price: 40000,
-        status: "Nuevo",
-        image: "https://images.unsplash.com/photo-1607853202273-797f1c22a38e"
+        name: "The Last of Us Part II",
+        console: "PS4",
+        status: "Destacado",
+        image: "images/the-last-of-us-2.jpg"
     },
-
     {
         id: 6,
-        name: "EA Sports FC",
+        name: "Ghost of Tsushima",
+        console: "PS4",
+        status: "Destacado",
+        image: "images/ghost-of-tsushima.jpg"
+    },
+    {
+        id: 7,
+        name: "Horizon Zero Dawn",
+        console: "PS4",
+        status: "Nuevo",
+        image: "images/horizon-zero-dawn.jpg"
+    },
+    {
+        id: 8,
+        name: "Days Gone",
+        console: "PS4",
+        status: "Nuevo",
+        image: "images/days-gone.jpg"
+    },
+    {
+        id: 9,
+        name: "Bloodborne",
+        console: "PS4",
+        status: "Destacado",
+        image: "images/bloodborne.jpg"
+    },
+    {
+        id: 10,
+        name: "Uncharted 4: A Thief's End",
+        console: "PS4",
+        status: "Nuevo",
+        image: "images/uncharted-4.jpg"
+    },
+    {
+        id: 11,
+        name: "Batman: Arkham Knight",
+        console: "PS4",
+        status: "Nuevo",
+        image: "images/batman-arkham-knight.jpg"
+    },
+    {
+        id: 12,
+        name: "Resident Evil 2",
+        console: "PS4",
+        status: "Destacado",
+        image: "images/resident-evil-2.jpg"
+    },
+    {
+        id: 13,
+        name: "Resident Evil 3",
+        console: "PS4",
+        status: "Nuevo",
+        image: "images/resident-evil-3.jpg"
+    },
+    {
+        id: 14,
+        name: "Resident Evil 4",
+        console: "PS4",
+        status: "Destacado",
+        image: "images/resident-evil-4.jpg"
+    },
+    {
+        id: 15,
+        name: "Resident Evil 7",
+        console: "PS4",
+        status: "Nuevo",
+        image: "images/resident-evil-7.jpg"
+    },
+    {
+        id: 16,
+        name: "Devil May Cry 5",
+        console: "PS4",
+        status: "Nuevo",
+        image: "images/devil-may-cry-5.jpg"
+    },
+    {
+        id: 17,
+        name: "The Witcher 3",
+        console: "PS4",
+        status: "Destacado",
+        image: "images/the-witcher-3.jpg"
+    },
+    {
+        id: 18,
+        name: "Dark Souls III",
+        console: "PS4",
+        status: "Nuevo",
+        image: "images/dark-souls-3.jpg"
+    },
+    {
+        id: 19,
+        name: "Elden Ring",
+        console: "PS4",
+        status: "Destacado",
+        image: "images/elden-ring.jpg"
+    },
+    {
+        id: 20,
+        name: "Sekiro: Shadows Die Twice",
+        console: "PS4",
+        status: "Nuevo",
+        image: "images/sekiro.jpg"
+    },
+    {
+        id: 21,
+        name: "Assassin's Creed Odyssey",
+        console: "PS4",
+        status: "Nuevo",
+        image: "images/ac-odyssey.jpg"
+    },
+    {
+        id: 22,
+        name: "Assassin's Creed Origins",
+        console: "PS4",
+        status: "Nuevo",
+        image: "images/ac-origins.jpg"
+    },
+    {
+        id: 23,
+        name: "Assassin's Creed Valhalla",
+        console: "PS4",
+        status: "Destacado",
+        image: "images/ac-valhalla.jpg"
+    },
+    {
+        id: 24,
+        name: "Far Cry 5",
+        console: "PS4",
+        status: "Nuevo",
+        image: "images/far-cry-5.jpg"
+    },
+    {
+        id: 25,
+        name: "Far Cry 6",
+        console: "PS4",
+        status: "Nuevo",
+        image: "images/far-cry-6.jpg"
+    },
+    {
+        id: 26,
+        name: "Mortal Kombat 11",
+        console: "PS4",
+        status: "Destacado",
+        image: "images/mortal-kombat-11.jpg"
+    },
+    {
+        id: 27,
+        name: "EA Sports FC 24",
+        console: "PS4",
+        status: "Nuevo",
+        image: "images/ea-fc-24.jpg"
+    },
+    {
+        id: 28,
+        name: "FIFA 23",
+        console: "PS4",
+        status: "Nuevo",
+        image: "images/fifa-23.jpg"
+    },
+    {
+        id: 29,
+        name: "Minecraft",
+        console: "PS4",
+        status: "Destacado",
+        image: "images/minecraft.jpg"
+    },
+    {
+        id: 30,
+        name: "Call of Duty: Modern Warfare",
+        console: "PS4",
+        status: "Nuevo",
+        image: "images/cod-modern-warfare.jpg"
+    },
+
+
+    // =====================
+    // PS5
+    // =====================
+
+    {
+        id: 101,
+        name: "Marvel's Spider-Man 2",
         console: "PS5",
-        price: 35000,
-        status: "Oferta",
-        image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55"
+        status: "Destacado",
+        image: "images/spider-man-2.jpg"
+    },
+    {
+        id: 102,
+        name: "God of War Ragnarök",
+        console: "PS5",
+        status: "Destacado",
+        image: "images/god-of-war-ragnarok.jpg"
+    },
+    {
+        id: 103,
+        name: "Ghost of Tsushima Director's Cut",
+        console: "PS5",
+        status: "Destacado",
+        image: "images/ghost-of-tsushima-ps5.jpg"
+    },
+    {
+        id: 104,
+        name: "Horizon Forbidden West",
+        console: "PS5",
+        status: "Destacado",
+        image: "images/horizon-forbidden-west.jpg"
+    },
+    {
+        id: 105,
+        name: "Astro Bot",
+        console: "PS5",
+        status: "Nuevo",
+        image: "images/astro-bot.jpg"
+    },
+    {
+        id: 106,
+        name: "Demon's Souls",
+        console: "PS5",
+        status: "Destacado",
+        image: "images/demons-souls.jpg"
+    },
+    {
+        id: 107,
+        name: "Returnal",
+        console: "PS5",
+        status: "Nuevo",
+        image: "images/returnal.jpg"
+    },
+    {
+        id: 108,
+        name: "Ratchet & Clank: Rift Apart",
+        console: "PS5",
+        status: "Nuevo",
+        image: "images/ratchet-clank.jpg"
+    },
+    {
+        id: 109,
+        name: "Stellar Blade",
+        console: "PS5",
+        status: "Destacado",
+        image: "images/stellar-blade.jpg"
+    },
+    {
+        id: 110,
+        name: "Final Fantasy VII Rebirth",
+        console: "PS5",
+        status: "Destacado",
+        image: "images/final-fantasy-vii-rebirth.jpg"
+    },
+    {
+        id: 111,
+        name: "Final Fantasy XVI",
+        console: "PS5",
+        status: "Nuevo",
+        image: "images/final-fantasy-xvi.jpg"
+    },
+    {
+        id: 112,
+        name: "Black Myth: Wukong",
+        console: "PS5",
+        status: "Destacado",
+        image: "images/black-myth-wukong.jpg"
+    },
+    {
+        id: 113,
+        name: "Elden Ring",
+        console: "PS5",
+        status: "Destacado",
+        image: "images/elden-ring-ps5.jpg"
+    },
+    {
+        id: 114,
+        name: "Cyberpunk 2077",
+        console: "PS5",
+        status: "Nuevo",
+        image: "images/cyberpunk-2077.jpg"
+    },
+    {
+        id: 115,
+        name: "Grand Theft Auto V",
+        console: "PS5",
+        status: "Destacado",
+        image: "images/gta-v-ps5.jpg"
+    },
+    {
+        id: 116,
+        name: "Resident Evil 4",
+        console: "PS5",
+        status: "Destacado",
+        image: "images/resident-evil-4-ps5.jpg"
+    },
+    {
+        id: 117,
+        name: "Resident Evil Village",
+        console: "PS5",
+        status: "Nuevo",
+        image: "images/resident-evil-village.jpg"
+    },
+    {
+        id: 118,
+        name: "Silent Hill 2",
+        console: "PS5",
+        status: "Destacado",
+        image: "images/silent-hill-2.jpg"
+    },
+    {
+        id: 119,
+        name: "Alan Wake 2",
+        console: "PS5",
+        status: "Nuevo",
+        image: "images/alan-wake-2.jpg"
+    },
+    {
+        id: 120,
+        name: "Death Stranding 2: On the Beach",
+        console: "PS5",
+        status: "Nuevo",
+        image: "images/death-stranding-2.jpg"
+    },
+    {
+        id: 121,
+        name: "Gran Turismo 7",
+        console: "PS5",
+        status: "Destacado",
+        image: "images/gran-turismo-7.jpg"
+    },
+    {
+        id: 122,
+        name: "EA Sports FC 25",
+        console: "PS5",
+        status: "Nuevo",
+        image: "images/ea-fc-25.jpg"
+    },
+    {
+        id: 123,
+        name: "NBA 2K25",
+        console: "PS5",
+        status: "Nuevo",
+        image: "images/nba-2k25.jpg"
+    },
+    {
+        id: 124,
+        name: "Call of Duty: Black Ops 6",
+        console: "PS5",
+        status: "Destacado",
+        image: "images/black-ops-6.jpg"
+    },
+    {
+        id: 125,
+        name: "Assassin's Creed Shadows",
+        console: "PS5",
+        status: "Nuevo",
+        image: "images/ac-shadows.jpg"
+    },
+    {
+        id: 126,
+        name: "Star Wars Jedi: Survivor",
+        console: "PS5",
+        status: "Nuevo",
+        image: "images/jedi-survivor.jpg"
+    },
+    {
+        id: 127,
+        name: "Dragon's Dogma 2",
+        console: "PS5",
+        status: "Nuevo",
+        image: "images/dragons-dogma-2.jpg"
+    },
+    {
+        id: 128,
+        name: "Tekken 8",
+        console: "PS5",
+        status: "Destacado",
+        image: "images/tekken-8.jpg"
+    },
+    {
+        id: 129,
+        name: "Mortal Kombat 1",
+        console: "PS5",
+        status: "Nuevo",
+        image: "images/mortal-kombat-1.jpg"
+    },
+    {
+        id: 130,
+        name: "Sonic X Shadow Generations",
+        console: "PS5",
+        status: "Nuevo",
+        image: "images/sonic-x-shadow.jpg"
     }
+
 ];
 
 
@@ -84,20 +463,8 @@ function saveGames(games) {
 }
 
 
-function money(value) {
-
-    return "$" + Number(value).toLocaleString("es-AR");
-
-}
-
-
-    function whatsappLink(game) {
-    return "https://wa.me/qr/6T47JUBLLYW5M1";
-        const message =
-        `Hola AKUMA STORE 👋 Quiero consultar por ${game.name} (${game.console}). Precio: ${money(game.price)}`;
-
-}
-
+function whatsappLink(game) {
+    return WHATSAPP_LINK;
 }
 
 
@@ -122,15 +489,6 @@ function showGames(consoleFilter = "todos") {
 
     container.innerHTML = "";
 
-    if (filtered.length === 0) {
-
-        container.innerHTML =
-            `<p>No hay juegos disponibles.</p>`;
-
-        return;
-    }
-
-
     filtered.forEach(game => {
 
         const card = document.createElement("article");
@@ -138,7 +496,6 @@ function showGames(consoleFilter = "todos") {
         card.className = "game-card";
 
         card.innerHTML = `
-
             <img
                 class="game-image"
                 src="${game.image}"
@@ -152,10 +509,6 @@ function showGames(consoleFilter = "todos") {
 
                 <div class="console">
                     ${game.console}
-                </div>
-
-                <div class="price">
-                    ${money(game.price)}
                 </div>
 
                 <span class="status">
@@ -181,134 +534,15 @@ function showGames(consoleFilter = "todos") {
 }
 
 
-let currentOffer = 0;
-
-
-function getOffers() {
-
-    return getGames().filter(
-        game => game.status === "Oferta"
-    );
-
-}
-
-
-function showOffer() {
-
-    const container =
-        document.getElementById("carouselContent");
-
-    if (!container) return;
-
-    const offers = getOffers();
-
-    if (offers.length === 0) {
-
-        container.innerHTML = `
-            <div class="offer-slide">
-                <div class="offer-info">
-                    <h3>No hay ofertas actualmente</h3>
-                    <p>Volvé pronto para ver nuevas ofertas.</p>
-                </div>
-            </div>
-        `;
-
-        return;
-    }
-
-    if (currentOffer >= offers.length) {
-        currentOffer = 0;
-    }
-
-    const game = offers[currentOffer];
-
-    container.innerHTML = `
-
-        <div class="offer-slide">
-
-            <img
-                src="${game.image}"
-                alt="${game.name}"
-            >
-
-            <div class="offer-info">
-
-                <span class="status">
-                    🔥 OFERTA
-                </span>
-
-                <h3>
-                    ${game.name}
-                </h3>
-
-                <p>
-                    ${game.console}
-                </p>
-
-                <div class="new-price">
-                    ${money(game.price)}
-                </div>
-
-                <a
-                    href="${whatsappLink(game)}"
-                    target="_blank"
-                    class="whatsapp"
-                >
-                    💬 COMPRAR / CONSULTAR
-                </a>
-
-            </div>
-
-        </div>
-
-    `;
-
-}
-
-
-function nextOffer() {
-
-    const offers = getOffers();
-
-    if (!offers.length) return;
-
-    currentOffer++;
-
-    if (currentOffer >= offers.length) {
-        currentOffer = 0;
-    }
-
-    showOffer();
-
-}
-
-
-function previousOffer() {
-
-    const offers = getOffers();
-
-    if (!offers.length) return;
-
-    currentOffer--;
-
-    if (currentOffer < 0) {
-        currentOffer = offers.length - 1;
-    }
-
-    showOffer();
-
-}
-
-
-/* FILTROS */
-
 document.querySelectorAll(".filter").forEach(button => {
 
     button.addEventListener("click", () => {
 
         document
             .querySelectorAll(".filter")
-            .forEach(btn => btn.classList.remove("active"));
+            .forEach(btn =>
+                btn.classList.remove("active")
+            );
 
         button.classList.add("active");
 
@@ -318,8 +552,6 @@ document.querySelectorAll(".filter").forEach(button => {
 
 });
 
-
-/* MODO OSCURO */
 
 const themeButton =
     document.getElementById("themeButton");
@@ -345,7 +577,10 @@ if (themeButton) {
     });
 
 
-    if (localStorage.getItem("akumaTheme") === "light") {
+    if (
+        localStorage.getItem("akumaTheme")
+        === "light"
+    ) {
 
         document.body.classList.add("light");
 
@@ -356,17 +591,4 @@ if (themeButton) {
 }
 
 
-/* INICIO */
-
 showGames();
-
-showOffer();
-
-
-/* CAMBIA AUTOMÁTICAMENTE EL CARRUSEL */
-
-setInterval(() => {
-
-    nextOffer();
-
-}, 5000);
