@@ -91,12 +91,12 @@ function money(value) {
 }
 
 
-function whatsappLink(game) {
-
-    const message =
+    function whatsappLink(game) {
+    return "https://wa.me/qr/6T47JUBLLYW5M1";
+        const message =
         `Hola AKUMA STORE 👋 Quiero consultar por ${game.name} (${game.console}). Precio: ${money(game.price)}`;
 
-    return `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;
+}
 
 }
 
